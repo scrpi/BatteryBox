@@ -5,22 +5,23 @@
 
 struct dcdc;
 
-struct dcdc *new_dcdc(HardwareSerial *uart);
+struct dcdc *new_dcdc(HardwareSerial *serial);
 
-void enable_output();
-void disable_output();
-void enable_lock();
-void disable_lock();
-void enable_display();
-void disable_display();
+void dcdc_enable_output(struct dcdc *dcdc);
+void dcdc_disable_output(struct dcdc *dcdc);
+void dcdc_enable_lock(struct dcdc *dcdc);
+void dcdc_disable_lock(struct dcdc *dcdc);
+void dcdc_enable_display(struct dcdc *dcdc);
+void dcdc_disable_display(struct dcdc *dcdc);
 
-void set_voltage(float v);
-void set_current(float a);
+void dcdc_set_voltage(struct dcdc *dcdc, float v);
+void dcdc_set_current(struct dcdc *dcdc, float a);
 
-float get_set_voltage();
-float get_set_current();
-float get_voltage();
-float get_current();
-bool get_output();
+float dcdc_get_set_voltage(struct dcdc *dcdc);
+float dcdc_get_set_current(struct dcdc *dcdc);
+float dcdc_get_voltage(struct dcdc *dcdc);
+float dcdc_get_current(struct dcdc *dcdc);
+bool dcdc_get_output(struct dcdc *dcdc);
+bool dcdc_get_lock(struct dcdc *dcdc);
 
 #endif
